@@ -12,10 +12,13 @@ else
   fi
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+local venv='$(virtualenv_prompt_info)%{$reset_color%}'
 
-PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${venv}
 ╰─%B$%b "
 RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[green]%}("
+ZSH_THEME_VIRTUALENV_SUFFIX=") %{$reset_color%}"
